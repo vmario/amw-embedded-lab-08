@@ -1,5 +1,5 @@
 ---
-title: "Ćwiczenie 7: Uśrednianie danych pomiarowych"
+title: "Ćwiczenie 8: Tryby oszczędzania energii w mikrokontrolerze"
 subtitle: "Instrukcja laboratorium"
 footer-left: "Instrukcja laboratorium"
 author: [Mariusz Chilmon <<mariusz.chilmon@ctm.gdynia.pl>>]
@@ -14,43 +14,32 @@ header-includes: |
   \usepackage{algpseudocode}
 ...
 
-> If you can't describe what you are doing as a process, you don't know what you're doing.
+> First, solve the problem. Then, write the code.
 >
-> — _W. Edwards Deming_
+> — _John Johnson_
 
 # Cel ćwiczenia
 
 Celem ćwiczenia jest zapoznanie się z:
 
-* algorytmem średniej kroczącej,
-* rozmiarem danych typu zmiennoprzecinkowego,
-* wpływem obliczeń zmiennoprzecinkowych na rozmiar kodu wykonywalnego.
+* trybami oszczędzania energii,
+* aktywowaniem oszczędzania energii,
+* wychodzeniem z trybu oszczędzania energii.
 
 # Uruchomienie programu wyjściowego
 
 1. Podłącz płytkę _WPSH209_ do _Arduino Uno_.
-1. Podłącz termometr LM35DZ do linii _A5_.
-1. Wyświetlacz wskazuje bieżącą temperaturę aktualizowaną mniej więcej co sekundę.
+1. Wyświetlacz odlicza wartości począwszy od `0000`.
 
 # Zadanie podstawowe
 
-Celem zadania podstawowego jest uśrednienie temperatury za pomocą prostej średniej kroczącej $SMA_k$ (ang. _Simple Moving Average_), która dla pomiarów $p_1, p_2, \dots, p_n$, jest średnią liczoną z ostatnich $k$ pomiarów:
-
-\begin{equation}
-SMA_k = \frac{1}{k} \sum^n_{i=n-k+1} p_i = \frac{p_{n-k+1} + p_{n-k+2} + \cdots + p_{n}}{k}
-\end{equation}
-
-Średnia krocząca, stosowana powszechnie w analizie danych finansowych, pozwala także na proste &bdquo;wygładzenie&rdquo; danych pomiarowych. W przypadku pomiaru temperatury zmniejsza to wrażliwość na krótkie wahania temperatury spowodowane np. podmuchem powietrza.
-
-\awesomebox[purple]{2pt}{\faMicrochip}{purple}{W programie wyjściowym pomiary są odczytywane w przerwaniu \lstinline{ADC_vect}, a więc dokładnie wtedy, gdy przetwornik analogowo-cyfrowy zakończy dany pomiar.}
-
-![Średnia krocząca (kolor czerwony) z danych pomiarowych (kolor niebieski)](sma.svg){width=9cm}
+Celem zadania podstawowego jest włączenie trybu XXXXXXXXXXXX
 
 ## Wymagania funkcjonalne
 
-1. Na wyświetlaczu prezentowana jest uśredniona temperatura z ostatnich 20 pomiarów.
+1. Po dwóch sekundach odliczanie zatrzymuje się, a procesor przechodzi w stan XXXXXXXXx
 
-Pierwsze 19 wyników będzie zafałszowane ze względu na to, że tablica używana do uśredniania początkowo wypełniona jest zerami.
+Na wyświetlaczu jest widoczna jedna cyfra z powodu zatrzymania multipleksowania wyświetlacza siedmiosegmentowego.
 
 ## Modyfikacja programu
 

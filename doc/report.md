@@ -1,5 +1,5 @@
 ---
-title: "Ćwiczenie 7: Uśrednianie danych pomiarowych"
+title: "Ćwiczenie 8: Tryby oszczędzania energii w mikrokontrolerze"
 author: [Mariusz Chilmon <<mariusz.chilmon@ctm.gdynia.pl>>]
 lang: "pl"
 titlepage: no
