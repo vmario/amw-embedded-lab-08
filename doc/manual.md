@@ -37,50 +37,15 @@ Celem zadania podstawowego jest włączenie trybu XXXXXXXXXXXX
 
 ## Wymagania funkcjonalne
 
-1. Po dwóch sekundach odliczanie zatrzymuje się, a procesor przechodzi w stan XXXXXXXXx
-
-Na wyświetlaczu jest widoczna jedna cyfra z powodu zatrzymania multipleksowania wyświetlacza siedmiosegmentowego.
+1. Po dwóch sekundach odliczanie zatrzymuje się, a procesor przechodzi w stan _Power-down_.
+1. Przed przejściem procesora w stan _Power-down_ gaszony jest wyświetlacz.
 
 ## Modyfikacja programu
-
-Implementacja algorytmu wymaga zadeklarowania statycznej tablicy o rozmiarze, który najlepiej określić stałą, używaną dalej w algorytmie:
-
-```cpp
-constexpr uint8_t SIZE = 20;
-static double measures[SIZE];
-```
-
-\awesomebox[teal]{2pt}{\faCode}{teal}{Zmienne statyczne i globalne domyślnie inicijalizowane są zerami.}
-
-\begin{algorithm}
-\caption{Średnia krocząca $SMA_{size}$}
-\begin{algorithmic}[1]
-    \State $measures_{index}\gets \Call{adc.temperature}$
-    \Comment{zapis bieżącego pomiaru}
-    \State $sum \gets 0$
-    \For{$i \gets 0$ to $size$}
-    \Comment{sumowanie wszystkich $size$ ostatnich pomiarów}
-        \State $sum \gets sum + measures_i$
-    \EndFor
-    \State $index\gets index + 1$
-    \Comment{obliczamy kolejny indeks w tablicy $measures$}
-    \If{$index \geq size$}
-    \Comment{pilnujemy, by nie przekroczyć rozmiaru tablicy}
-        \State $index\gets 0$
-    \EndIf
-    \State \Return {$\frac{sum}{size}$}
-    \Comment{zwracamy średnią}
-\end{algorithmic}
-\end{algorithm}
 
 # Zadanie rozszerzone
 
-Celem zadania rozszerzonego jest wstępne inicjalizacja średniej pierwszym pomiarem.
-
 ## Wymagania funkcjonalne
 
-1. Urządzenie od razu po uruchomieniu wskazuje bieżącą temperaturę.
+1. Po wciśnięciu przycisku _S1_ na 2 sekundy kontynuowane jest odliczanie.
 
 ## Modyfikacja programu
-
-Po uruchomieniu urządzenia tablica pomiarów powinna zostać wypełniona wartością pierwszego pomiaru.
