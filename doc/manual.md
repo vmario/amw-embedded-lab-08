@@ -79,13 +79,17 @@ Celem zadania rozszerzonego jest wyjście z trybu oszczędzania energii za pomoc
 
 ## Modyfikacja programu
 
-Wznowienie działania programu nie jest możliwe z poziomu samego programu, gdyż jego wykonywanie jest wstrzymane. W trybie _Power-down_ oscylator taktujący rdzeń procesora i peryferiały takie jak timery są całkowicie wyłączone, więc jedynym sposobem na interakcję z mikrokontrolerem jest dostarczenie sygnału ze świata zewnętrznego, np. w postaci impulsu na pinie wejściowym.
+Wznowienie działania nie jest możliwe z poziomu samego programu, gdyż jego wykonywanie jest wstrzymane. W trybie _Power-down_ oscylator taktujący rdzeń procesora i peryferiały takie jak timery są całkowicie wyłączone, więc jedynym sposobem na interakcję z mikrokontrolerem jest dostarczenie sygnału ze świata zewnętrznego, np. w postaci impulsu na pinie wejściowym.
 
-Impuls ten musi być, oczywiście, obsłużony przez przerwanie, gdyż pętla główna jest zatrzymana i nie można z jej poziomu sprawdzać stanu wejścia.
+Impuls ten musi być, oczywiście, obsłużony przez przerwanie, gdyż pętla główna jest zatrzymana i nie można jej użyć do sprawdzania stanu wejścia.
 
-Aby włączyć przerwanie od przycisku `S1` należy w funkcji `gpioInitialize()` włączyć przerwanie `PCIE1` dla wejścia `PCINT9`:
+Aby włączyć przerwanie od przycisku `S1` należy w funkcji `gpioInitialize()` włączyć przerwanie `PCINT1` dla wejścia `PCINT9`[^1]:
 
 ```cpp
 PCMSK1 |= _BV(PCINT9);
 PCICR |= _BV(PCIE1);
 ```
+
+\awesomebox[teal]{2pt}{\faCode}{teal}{Pamiętaj o zdefiniowaniu procedury obsługi przerwania \lstinline{PCINT1_vect}, gdyż domyślna obsługa przerwania resetuje procesor.}
+
+[^1]: Tak, w tym mikrokontrolerze `PCINT` raz oznacza przerwanie od GPIO, a raz pin wywołujący to przerwanie…

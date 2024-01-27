@@ -32,27 +32,31 @@ _W trosce o Państwa wyniki proszę o czytelne wpisywanie nazwisk._
 
 ## Zadanie podstawowe
 
-Pomiar wykonywany jest z częstotliwością 0,95&nbsp;Hz. Uśredniamy 20 ostatnich pomiarów. Z jakiego przedziału czasu uwzględniane są pomiary?
+W jakich trybach można wykorzystać _Timer2_ do wyjścia ze stanu uśpienia?
+
+\awesomebox[violet]{2pt}{\faBook}{violet}{Podsumowanie trybów oszczędzania energii można znaleźć w rozdziale \textit{Power Management and Sleep Modes} w sekcji \textit{Sleep Modes} dokumentacji mikrokontrolera.}
+
+\vspace{3cm}
+
+Jakie peryferiały działają w każdym trybie?
 
 \vspace{3cm}
 
 ## Zadanie rozszerzone
 
-Odczytaj z procesu kompilacji rozmiar programu (segment `.text`) oraz rozmiar danych globalnych i&nbsp;statycznych w pamięci RAM (segment `.bss`) dla Twojego programu. Zwiększ liczbę uśrednianych próbek z 20 do 32 i powtórnie odczytaj rozmiary segmentów. Oblicz różnicę tych rozmiarów między dwoma wersjami programu.
+Jaki jest pobór prądu przez mikrokontroler działający w normalnym trybie (_Active Supply Current_) przy taktowaniu 16&nbsp;MHz i napięciu zasilania 5V?
 
-\begin{center}
-\begin{tabular}{ |c|c|c|c| } 
-\hline
- & $k = 20$ & $k = 32$ & Różnica \\
-\hline
-\texttt{.text} & & & \\ 
-\hline
-\texttt{.bss} & & & \\ 
-\hline
-\end{tabular}
-\end{center}
+\awesomebox[violet]{2pt}{\faBook}{violet}{Skorzystaj z sekcji \textit{ATmega328P Typical Characteristics} dokumentacji mikrokontrolera.}
 
-Jaki rozmiar ma typ `double` lub inny użyty przez Ciebie do przechowywania poprzednich próbek? Jaki rozmiar ma zazwyczaj typ `double` na komputerach PC (zgodnie z IEEE 754)?
+\vspace{3cm}
+
+Jaki jest pobór prądu przez mikrokontroler działający w trybie _Power-down_ (_Power-down Supply Current_) przy napięciu zasilania 5V w temperaturze pokojowej[^1]?
+
+[^1]: Watchdog jest wyłączony (_Watchdog Timer Disabled_).
+
+\vspace{3cm}
+
+Ile razy włączenie trybu \textit{Power-down} może wydłużyć działanie urządzenia zasilanego z baterii?
 
 \vspace{3cm}
 
@@ -60,4 +64,4 @@ Jaki rozmiar ma typ `double` lub inny użyty przez Ciebie do przechowywania popr
 
 _+1 pkt dla osoby, która jako pierwsza poda poprawną odpowiedź._
 
-Dlaczego po zwiększeniu rozmiaru tablicy zmniejszył się rozmiar kodu programu, a więc liczba instrukcji?
+Dlaczego przy określonym napięciu zasilania pobór prądu w normalnym trybie pracy zależy od częstotliwości taktowania, a w trybie _Power-down_ od temperatury?
