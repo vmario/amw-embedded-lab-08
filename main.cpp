@@ -5,10 +5,6 @@
 #include <avr/interrupt.h>
 #include <avr/sleep.h>
 
-#if 1
-#include <util/delay.h>
-#endif
-
 /**
  * Obsługa przerwania komparatora Timer/Counter0.
  *
@@ -26,36 +22,13 @@ ISR(TIMER0_OVF_vect)
  */
 void shutdown()
 {
-#if 1
-#if 1
-	_delay_ms(2000);
-	shifter.shift(0xff);
-	shifter.shift(0x00);
-	shifter.latch();
-#endif
-	SMCR = _BV(SM1) | _BV(SE);
-	sleep_cpu();
-#endif
 }
-
-#if 1
-/**
- * Obsługa przerwania od przycisku S1.
- */
-ISR(PCINT1_vect)
-{
-}
-#endif
 
 /**
  * Inicjalizuje GPIO (włącza przerwanie od przycisku).
  */
 void gpioInitialize()
 {
-#if 1
-	PCICR |= _BV(PCIE1);
-	PCMSK1 |= _BV(PCINT9);
-#endif
 }
 
 /**
