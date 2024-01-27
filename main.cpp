@@ -39,6 +39,9 @@ void shutdown()
 }
 
 #if 1
+/**
+ * Obsługa przerwania od przycisku S1.
+ */
 ISR(PCINT1_vect)
 {
 }
